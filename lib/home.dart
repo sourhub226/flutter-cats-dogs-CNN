@@ -90,44 +90,43 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80), // Set this height
-        child: Container(
-          color: Theme.of(context).primaryColor,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 24.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 35),
-                  child: Text(
+        child: SafeArea(
+          child: Container(
+            color: Theme.of(context).primaryColor,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 24.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
                     "Teachable Machine CNN",
                     style: TextStyle(
                         color: MyApp.labelColor,
                         fontSize: 16,
                         fontWeight: FontWeight.w500),
                   ),
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 5.0),
-                      child: Icon(Icons.pets),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 2.0),
-                      child: Text(
-                        "Cats and Dogs Classifier",
-                        style: TextStyle(
-                          color: Theme.of(context).accentColor,
-                          fontSize: 26,
-                          fontWeight: FontWeight.w500,
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 5.0),
+                        child: Icon(Icons.pets),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 2.0),
+                        child: Text(
+                          "Cats and Dogs Classifier",
+                          style: TextStyle(
+                            color: Theme.of(context).accentColor,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
