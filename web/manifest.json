@@ -1,6 +1,6 @@
 {
-    "name": "cats_dogs_classifier",
-    "short_name": "cats_dogs_classifier",
+    "name": "catsanddogs",
+    "short_name": "catsanddogs",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

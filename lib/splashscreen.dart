@@ -1,5 +1,5 @@
-import 'package:cats_dogs_classifier/home.dart';
 import 'package:flutter/material.dart';
+import 'package:catsanddogs/home.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 class MySplash extends StatefulWidget {
@@ -14,17 +14,17 @@ class _MySplashState extends State<MySplash> {
       seconds: 2,
       navigateAfterSeconds: Home(),
       title: Text(
-        "Dogs and Cats",
+        "Cats and Dogs",
         style: TextStyle(
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w500,
           fontSize: 30,
-          color: Color(0xFFE99600),
+          color: Theme.of(context).accentColor,
         ),
       ),
-      image: Image.asset("assets/cat.png"),
-      backgroundColor: Colors.grey[900],
+      image: Image.asset("assets/icons/catdog_transparent.png"),
+      backgroundColor: Theme.of(context).primaryColor,
       photoSize: 100,
-      loaderColor: Color(0xFFE99600),
+      loaderColor: Theme.of(context).accentColor,
     );
   }
 }
