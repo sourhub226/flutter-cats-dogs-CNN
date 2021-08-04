@@ -11,11 +11,10 @@ class AboutPage extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Go back!'),
+        child: Column(
+          children: [
+            Text('Hello'),
+          ],
         ),
       ),
     );

@@ -2,7 +2,7 @@
     package="com.ml.catsanddogs">
    <application
         android:label="Cats and Dogs Classifier"
-        android:icon="@mipmap/launcher_icon">
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

@@ -33,8 +33,7 @@ class _HomeState extends State<Home> {
 
   setImageSize(image) async {
     if (image == null) return;
-    File temp =
-        new File(image.path); // Or any other way to get a File instance.
+    File temp = new File(image.path);
     var decodedImage = await decodeImageFromList(temp.readAsBytesSync());
     setState(() {
       imageHeight = decodedImage.height;
@@ -45,7 +44,12 @@ class _HomeState extends State<Home> {
   }
 
   pickCameraImage() async {
-    var image = await picker.pickImage(source: ImageSource.camera);
+    var image = await picker.pickImage(
+        source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 640,
+        imageQuality: 0,
+        preferredCameraDevice: CameraDevice.front);
     if (image == null) return null;
     setImageSize(image);
     setState(() {
@@ -55,7 +59,7 @@ class _HomeState extends State<Home> {
   }
 
   pickGalleryImage() async {
-    var image = await picker.pickImage(source: ImageSource.gallery);
+    var image = await picker.pickImage(source: ImageSource.gallery,maxHeight: 480,maxWidth: 640,imageQuality: 0);
     if (image == null) return null;
     setImageSize(image);
     setState(() {
@@ -89,12 +93,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80), // Set this height
+        preferredSize: Size.fromHeight(80),
         child: SafeArea(
           child: Container(
             color: Theme.of(context).primaryColor,
             child: Padding(
-              padding: const EdgeInsets.only(left: 24.0),
+              padding: const EdgeInsets.only(left: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,28 +106,18 @@ class _HomeState extends State<Home> {
                   Text(
                     "Teachable Machine CNN",
                     style: TextStyle(
-                        color: MyApp.labelColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),
+                      color: MyApp.labelColor,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 5.0),
-                        child: Icon(Icons.pets),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 2.0),
-                        child: Text(
-                          "Cats and Dogs Classifier",
-                          style: TextStyle(
-                            color: Theme.of(context).accentColor,
-                            fontSize: 26,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
+                  Text(
+                    "Cats and Dogs Classifier",
+                    style: TextStyle(
+                      color: Theme.of(context).accentColor,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ],
               ),
@@ -147,7 +141,7 @@ class _HomeState extends State<Home> {
       ),
       backgroundColor: Theme.of(context).canvasColor,
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 24),
+        padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -176,13 +170,16 @@ class _HomeState extends State<Home> {
                                 ? MediaQuery.of(context).size.height / 2.3
                                 : MediaQuery.of(context).size.height / 3.4,
                             child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: FittedBox(
-                                    fit: BoxFit.cover,
-                                    child: ConstrainedBox(
-                                        constraints: BoxConstraints(
-                                            minWidth: 1, minHeight: 1),
-                                        child: Image.file(_image)))),
+                              borderRadius: BorderRadius.circular(10),
+                              child: FittedBox(
+                                fit: BoxFit.cover,
+                                child: ConstrainedBox(
+                                  constraints:
+                                      BoxConstraints(minWidth: 1, minHeight: 1),
+                                  child: Image.file(_image),
+                                ),
+                              ),
+                            ),
                           ),
                           SizedBox(
                             height: 10,
@@ -191,7 +188,6 @@ class _HomeState extends State<Home> {
                               ? Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(7),
-                                    // color: MyApp.labelColor,
                                   ),
                                   child: Padding(
                                     padding:
@@ -199,9 +195,10 @@ class _HomeState extends State<Home> {
                                     child: Text(
                                       "Detection: ${_output[0]["label"]}",
                                       style: TextStyle(
-                                          color: MyApp.labelColor,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500),
+                                        color: MyApp.labelColor,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ),
                                 )
@@ -221,15 +218,18 @@ class _HomeState extends State<Home> {
                     children: [
                       ElevatedButton(
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                Theme.of(context).accentColor),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Theme.of(context).accentColor),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
-                            ))),
+                            ),
+                          ),
+                        ),
                         onPressed: pickGalleryImage,
                         child: SizedBox(
-                          width: MediaQuery.of(context).size.width - 200,
+                          width: MediaQuery.of(context).size.width / 2,
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                             child: Row(
@@ -259,15 +259,18 @@ class _HomeState extends State<Home> {
                       ),
                       ElevatedButton(
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                Theme.of(context).accentColor),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Theme.of(context).accentColor),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
-                            ))),
+                            ),
+                          ),
+                        ),
                         onPressed: pickCameraImage,
                         child: SizedBox(
-                          width: MediaQuery.of(context).size.width - 200,
+                          width: MediaQuery.of(context).size.width / 2,
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                             child: Row(
