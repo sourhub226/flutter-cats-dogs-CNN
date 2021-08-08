@@ -13,7 +13,7 @@ class AboutPage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Text('Hello'),
+            Text('To be completed soon'),
           ],
         ),
       ),

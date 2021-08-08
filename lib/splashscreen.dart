@@ -14,7 +14,7 @@ class _MySplashState extends State<MySplash> {
       seconds: 2,
       navigateAfterSeconds: Home(),
       image: Image.asset("assets/icons/catdog_transparent.png"),
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Theme.of(context).canvasColor,
       photoSize: 120,
       loaderColor: Theme.of(context).accentColor,
     );

@@ -6,8 +6,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   static const labelColor = Color(0xFFcfdfe8);
+  static const accentColor = Color(0xfffdc550);
+  static const appBarColor = Color(0xff323232);
+  static const canvasColor = Color(0xff222222);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,18 +18,21 @@ class MyApp extends StatelessWidget {
       home: MySplash(),
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData(
-          appBarTheme: AppBarTheme(elevation: 0),
-          brightness: Brightness.dark,
-          primaryColor: Color(0xff141414),
-          canvasColor: Color(0xff222222),
-          accentColor: Color(0xfffdbd40),
-          primaryIconTheme: IconThemeData(color: Color(0xfffdbd40)),
-          iconTheme: IconThemeData(color: labelColor),
-          tooltipTheme: TooltipThemeData(
-              textStyle: TextStyle(color: labelColor),
-              decoration: BoxDecoration(
-                  color: Color(0xff141414),
-                  borderRadius: BorderRadius.circular(20)))),
+        appBarTheme: AppBarTheme(elevation: 0),
+        brightness: Brightness.dark,
+        primaryColor: appBarColor,
+        canvasColor: canvasColor,
+        accentColor: accentColor,
+        primaryIconTheme: IconThemeData(color: accentColor),
+        iconTheme: IconThemeData(color: labelColor),
+        tooltipTheme: TooltipThemeData(
+          textStyle: TextStyle(color: labelColor),
+          decoration: BoxDecoration(
+            color: appBarColor,
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+      ),
     );
   }
 }

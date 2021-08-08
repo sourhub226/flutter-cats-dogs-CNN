@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
         source: ImageSource.camera,
         maxHeight: 480,
         maxWidth: 640,
-        imageQuality: 0,
+        imageQuality: 50,
         preferredCameraDevice: CameraDevice.front);
     if (image == null) return null;
     setImageSize(image);
@@ -59,7 +59,11 @@ class _HomeState extends State<Home> {
   }
 
   pickGalleryImage() async {
-    var image = await picker.pickImage(source: ImageSource.gallery,maxHeight: 480,maxWidth: 640,imageQuality: 0);
+    var image = await picker.pickImage(
+        source: ImageSource.gallery,
+        maxHeight: 480,
+        maxWidth: 640,
+        imageQuality: 0);
     if (image == null) return null;
     setImageSize(image);
     setState(() {
@@ -71,7 +75,7 @@ class _HomeState extends State<Home> {
   classifyImage(File image) async {
     var output = await Tflite.runModelOnImage(
       path: image.path,
-      numResults: 2,
+      numResults: 20,
       threshold: 0.5,
       imageMean: 127.5,
       imageStd: 127.5,
@@ -170,7 +174,9 @@ class _HomeState extends State<Home> {
                                 ? MediaQuery.of(context).size.height / 2.3
                                 : MediaQuery.of(context).size.height / 3.4,
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10)),
                               child: FittedBox(
                                 fit: BoxFit.cover,
                                 child: ConstrainedBox(
@@ -186,9 +192,6 @@ class _HomeState extends State<Home> {
                           ),
                           _output != null
                               ? Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(7),
-                                  ),
                                   child: Padding(
                                     padding:
                                         const EdgeInsets.fromLTRB(5, 2, 6, 3),
@@ -202,7 +205,7 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 )
-                              : Container(),
+                              : () {},
                           SizedBox(
                             height: 10,
                           ),
