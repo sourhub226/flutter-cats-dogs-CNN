@@ -221,6 +221,7 @@ class _HomeState extends State<Home> {
                     children: [
                       ElevatedButton(
                         style: ButtonStyle(
+                          elevation: MaterialStateProperty.all(0),
                           backgroundColor: MaterialStateProperty.all<Color>(
                               Theme.of(context).accentColor),
                           shape:
@@ -242,13 +243,13 @@ class _HomeState extends State<Home> {
                                   padding: const EdgeInsets.only(right: 5.0),
                                   child: Icon(
                                     Icons.photo_album,
-                                    color: Theme.of(context).primaryColor,
+                                    color: Theme.of(context).canvasColor,
                                   ),
                                 ),
                                 Text(
                                   "Pick an image",
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Theme.of(context).canvasColor,
                                     fontSize: 15,
                                   ),
                                 ),
@@ -262,6 +263,7 @@ class _HomeState extends State<Home> {
                       ),
                       ElevatedButton(
                         style: ButtonStyle(
+                          elevation: MaterialStateProperty.all(0),
                           backgroundColor: MaterialStateProperty.all<Color>(
                               Theme.of(context).accentColor),
                           shape:
@@ -283,13 +285,13 @@ class _HomeState extends State<Home> {
                                   padding: const EdgeInsets.only(right: 5.0),
                                   child: Icon(
                                     Icons.camera_enhance,
-                                    color: Theme.of(context).primaryColor,
+                                    color: Theme.of(context).canvasColor,
                                   ),
                                 ),
                                 Text(
                                   "Take a photo",
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Theme.of(context).canvasColor,
                                     fontSize: 15,
                                   ),
                                 ),

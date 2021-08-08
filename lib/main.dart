@@ -8,8 +8,8 @@ void main() {
 class MyApp extends StatelessWidget {
   static const labelColor = Color(0xFFcfdfe8);
   static const accentColor = Color(0xfffdc550);
-  static const appBarColor = Color(0xff323232);
-  static const canvasColor = Color(0xff222222);
+  static const appBarColor = Color(0xff272c2e);
+  static const canvasColor = Color(0xff171c1e);
 
   @override
   Widget build(BuildContext context) {
