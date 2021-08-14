@@ -1,14 +1,18 @@
 import 'package:catsanddogs/splashscreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  static const labelColor = Color(0xFFcfdfe8);
+  static const labelColor = Color(0xFfa1c4ce);
   static const accentColor = Color(0xfffdc550);
-  static const appBarColor = Color(0xff272c2e);
+  static const appBarColor = Color(0xff232b2e);
   static const canvasColor = Color(0xff171c1e);
 
   @override
@@ -16,8 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Cats and Dogs Classifier",
       home: MySplash(),
-      themeMode: ThemeMode.dark,
-      darkTheme: ThemeData(
+      theme: ThemeData(
         appBarTheme: AppBarTheme(elevation: 0),
         brightness: Brightness.dark,
         primaryColor: appBarColor,
