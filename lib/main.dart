@@ -10,7 +10,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  static const labelColor = Color(0xFfa1c4ce);
+  static const labelColor = Color(0xFfc0d8ed);
   static const accentColor = Color(0xfffdc550);
   static const appBarColor = Color(0xff232b2e);
   static const canvasColor = Color(0xff171c1e);

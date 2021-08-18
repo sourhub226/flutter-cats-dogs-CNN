@@ -21,6 +21,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
+
     loadModel().then((value) {
       setState(() {});
     });
@@ -158,6 +159,7 @@ class _HomeState extends State<Home> {
                 _loading
                     ? Container(
                         width: 230,
+                        height: 230,
                         child: Column(
                           children: [
                             Image.asset("assets/images/catdog_transparent.png"),
@@ -287,6 +289,7 @@ class _HomeState extends State<Home> {
                                   'Permission denied. Show a dialog and again ask for the permission');
                               showDialog(
                                   context: context,
+                                  barrierDismissible: false,
                                   builder: (context) => AlertDialog(
                                         title: Text("Permission denied"),
                                         content: Text(
@@ -295,6 +298,13 @@ class _HomeState extends State<Home> {
                                             Theme.of(context).primaryColor,
                                         actions: [
                                           TextButton(
+                                              style: ButtonStyle(
+                                                  overlayColor:
+                                                      MaterialStateProperty.all<
+                                                          Color>(Theme.of(
+                                                              context)
+                                                          .accentColor
+                                                          .withOpacity(0.2))),
                                               onPressed: () {
                                                 Navigator.pop(context);
                                               },
@@ -317,17 +327,23 @@ class _HomeState extends State<Home> {
                                             Theme.of(context).primaryColor,
                                         actions: [
                                           TextButton(
+                                              style: ButtonStyle(
+                                                  overlayColor:
+                                                      MaterialStateProperty.all<
+                                                          Color>(Theme.of(
+                                                              context)
+                                                          .accentColor
+                                                          .withOpacity(0.2))),
                                               onPressed: () {
                                                 Navigator.pop(context);
                                                 openAppSettings();
                                               },
-                                              child: Text("Open Settings",
+                                              child: Text("OPEN SETTINGS",
                                                   style: TextStyle(
                                                       color: Theme.of(context)
                                                           .accentColor)))
                                         ],
                                       ));
-                              
                             }
                           },
                           child: SizedBox(
