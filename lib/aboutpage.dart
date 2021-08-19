@@ -2,7 +2,7 @@ import 'package:catsanddogs/main.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:apk_admin/apk_admin.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:package_info/package_info.dart';
 
 class AboutPage extends StatefulWidget {
@@ -11,7 +11,6 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-  ApkExporter apkExporter = ApkExporter();
   PackageInfo _packageInfo = PackageInfo(
     appName: 'Unknown',
     packageName: 'Unknown',
@@ -74,11 +73,12 @@ class _AboutPageState extends State<AboutPage> {
                             SizedBox(
                               height: 3,
                             ),
-                            Text(
-                                "With the use of a Machine Learning model, this app can intelligently classify the image you input into cats and dogs. "),
                             RichText(
                               text: TextSpan(
                                 children: [
+                                  TextSpan(
+                                      text:
+                                          "With the use of a Machine Learning model, this app can intelligently classify the image you input into cats and dogs. "),
                                   TextSpan(
                                     text:
                                         "The machine learning model is built using Google's ",
@@ -192,6 +192,7 @@ class _AboutPageState extends State<AboutPage> {
                                   "Need Help?",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
+                                      fontSize: 15,
                                       color: Theme.of(context).accentColor),
                                 ),
                               )),
@@ -326,8 +327,8 @@ class _AboutPageState extends State<AboutPage> {
                                 ),
                               ),
                               onPressed: () async {
-                                await apkExporter
-                                    .shareAppLink(_packageInfo.packageName);
+                                Share.share(
+                                    "https://play.google.com/store/apps/details?id=${_packageInfo.packageName}");
                               },
                               child: SizedBox(
                                 width: MediaQuery.of(context).size.width / 3,
@@ -379,9 +380,11 @@ class _AboutPageState extends State<AboutPage> {
                               SizedBox(
                                 height: 3,
                               ),
-                              Text(
-                                "Created by a self-taught programmer",
-                                style: TextStyle(color: MyApp.labelColor),
+                              FittedBox(
+                                child: Text(
+                                  "Created by a self-taught programmer",
+                                  style: TextStyle(color: MyApp.labelColor),
+                                ),
                               ),
                             ],
                           ),
