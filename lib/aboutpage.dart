@@ -75,8 +75,7 @@ class _AboutPageState extends State<AboutPage> {
                               height: 3,
                             ),
                             Text(
-                              "With the use of a Machine Learning model, this app can intelligently classify the image you input into cats and dogs.",
-                            ),
+                                "With the use of a Machine Learning model, this app can intelligently classify the image you input into cats and dogs. "),
                             RichText(
                               text: TextSpan(
                                 children: [
@@ -93,7 +92,7 @@ class _AboutPageState extends State<AboutPage> {
                                             ? await launch(_url)
                                             : throw 'Could not launch $_url';
                                       },
-                                    text: 'Teachable Machine.',
+                                    text: 'Teachable Machine. ',
                                     style: new TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Theme.of(context).accentColor),
@@ -111,22 +110,48 @@ class _AboutPageState extends State<AboutPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Text(
-                            //   "Note:",
-                            //   style: TextStyle(
-                            //       fontWeight: FontWeight.bold,
-                            //       fontSize: 16,
-                            //       color: Theme.of(context).accentColor),
-                            // ),
-                            // SizedBox(
-                            //   height: 3,
-                            // ),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                      text:
+                                          "The dataset used to build the model comes from "),
+                                  TextSpan(
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap = () async {
+                                        var _url =
+                                            "https://www.kaggle.com/tongpython/cat-and-dog";
+                                        await canLaunch(_url)
+                                            ? await launch(_url)
+                                            : throw 'Could not launch $_url';
+                                      },
+                                    text: 'Kaggle',
+                                    style: new TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Theme.of(context).accentColor),
+                                  ),
+                                  TextSpan(
+                                      text:
+                                          ", and it contains over 10,000 pictures of cats and dogs that were supplied as training input."),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
                             RichText(
                               text: TextSpan(
                                 children: [
                                   TextSpan(
                                     text:
-                                        "This app does not include any advertisements and is completely free to use.The project is hosted on ",
+                                        "This app does not include any advertising and is completely free to use.The project is hosted on ",
                                   ),
                                   TextSpan(
                                     recognizer: TapGestureRecognizer()
@@ -229,13 +254,18 @@ class _AboutPageState extends State<AboutPage> {
                                                 )),
                                             TextButton(
                                                 style: ButtonStyle(
-                                                    overlayColor:
-                                                        MaterialStateProperty
-                                                            .all<Color>(Theme
-                                                                    .of(context)
-                                                                .accentColor
-                                                                .withOpacity(
-                                                                    0.2))),
+                                                  overlayColor:
+                                                      MaterialStateProperty.all<
+                                                          Color>(Theme.of(
+                                                              context)
+                                                          .accentColor
+                                                          .withOpacity(0.2)),
+                                                  backgroundColor:
+                                                      MaterialStateProperty.all<
+                                                              Color>(
+                                                          Theme.of(context)
+                                                              .accentColor),
+                                                ),
                                                 onPressed: () async {
                                                   var _url =
                                                       "market://details?id=${_packageInfo.packageName}";
@@ -249,7 +279,7 @@ class _AboutPageState extends State<AboutPage> {
                                                   "OPEN PLAY STORE",
                                                   style: TextStyle(
                                                       color: Theme.of(context)
-                                                          .accentColor),
+                                                          .primaryColor),
                                                 )),
                                           ],
                                         ));

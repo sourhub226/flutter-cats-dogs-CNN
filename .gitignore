@@ -49,3 +49,4 @@ app.*.map.json
 test_images/
 .vscode/
 edits/
+app desc.txt
