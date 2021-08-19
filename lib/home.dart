@@ -243,20 +243,24 @@ class _HomeState extends State<Home> {
                             child: Padding(
                               padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                // mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 5.0),
-                                    child: Icon(
-                                      Icons.photo_album,
-                                      color: Theme.of(context).canvasColor,
-                                    ),
+                                  Icon(
+                                    Icons.photo_album,
+                                    color: Theme.of(context).canvasColor,
                                   ),
-                                  Text(
-                                    "Pick an image",
-                                    style: TextStyle(
-                                      color: Theme.of(context).canvasColor,
-                                      // fontSize: 15,
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Expanded(
+                                    child: Center(
+                                      child: Text(
+                                        "Pick an image",
+                                        style: TextStyle(
+                                          color: Theme.of(context).canvasColor,
+                                          // fontSize: 15,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -351,20 +355,24 @@ class _HomeState extends State<Home> {
                             child: Padding(
                               padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                // mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 5.0),
-                                    child: Icon(
-                                      Icons.camera_enhance,
-                                      color: Theme.of(context).canvasColor,
-                                    ),
+                                  Icon(
+                                    Icons.camera_enhance,
+                                    color: Theme.of(context).canvasColor,
                                   ),
-                                  Text(
-                                    "Snap a picture",
-                                    style: TextStyle(
-                                      color: Theme.of(context).canvasColor,
-                                      // fontSize: 15,
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Expanded(
+                                    child: Center(
+                                      child: Text(
+                                        "Snap a picture",
+                                        style: TextStyle(
+                                          color: Theme.of(context).canvasColor,
+                                          // fontSize: 15,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ],

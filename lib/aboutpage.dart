@@ -207,158 +207,171 @@ class _AboutPageState extends State<AboutPage> {
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            ElevatedButton(
-                              style: ButtonStyle(
-                                elevation: MaterialStateProperty.all(0),
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Theme.of(context).accentColor),
-                                shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
+                        child: IntrinsicHeight(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              ElevatedButton(
+                                style: ButtonStyle(
+                                  elevation: MaterialStateProperty.all(0),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Theme.of(context).accentColor),
+                                  shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              onPressed: () async {
-                                print("RATE");
-                                showDialog(
-                                    context: context,
-                                    barrierDismissible: false,
-                                    builder: (context) => AlertDialog(
-                                          backgroundColor:
-                                              Theme.of(context).primaryColor,
-                                          title: Text("Rate this app"),
-                                          content: Text(
-                                              "If you like this app, please take a moment to rate and review it on the Google Play Store! It's really beneficial to me, and it shouldn't take more than a minute of your time."),
-                                          actions: [
-                                            TextButton(
-                                                style: ButtonStyle(
+                                onPressed: () async {
+                                  print("RATE");
+                                  showDialog(
+                                      context: context,
+                                      barrierDismissible: false,
+                                      builder: (context) => AlertDialog(
+                                            backgroundColor:
+                                                Theme.of(context).primaryColor,
+                                            title: Text("Rate this app"),
+                                            content: Text(
+                                                "If you like this app, please take a moment to rate and review it on the Google Play Store! It's really beneficial to me, and it shouldn't take more than a minute of your time."),
+                                            actions: [
+                                              TextButton(
+                                                  style: ButtonStyle(
+                                                      overlayColor:
+                                                          MaterialStateProperty
+                                                              .all<Color>(Theme
+                                                                      .of(
+                                                                          context)
+                                                                  .accentColor
+                                                                  .withOpacity(
+                                                                      0.2))),
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Text(
+                                                    "NO THANKS",
+                                                    style: TextStyle(
+                                                        color: Theme.of(context)
+                                                            .accentColor),
+                                                  )),
+                                              TextButton(
+                                                  style: ButtonStyle(
                                                     overlayColor:
                                                         MaterialStateProperty
                                                             .all<Color>(Theme
                                                                     .of(context)
                                                                 .accentColor
                                                                 .withOpacity(
-                                                                    0.2))),
-                                                onPressed: () {
-                                                  Navigator.pop(context);
-                                                },
-                                                child: Text(
-                                                  "NO THANKS",
-                                                  style: TextStyle(
-                                                      color: Theme.of(context)
-                                                          .accentColor),
-                                                )),
-                                            TextButton(
-                                                style: ButtonStyle(
-                                                  overlayColor:
-                                                      MaterialStateProperty.all<
-                                                          Color>(Theme.of(
-                                                              context)
-                                                          .accentColor
-                                                          .withOpacity(0.2)),
-                                                  backgroundColor:
-                                                      MaterialStateProperty.all<
-                                                              Color>(
-                                                          Theme.of(context)
-                                                              .accentColor),
-                                                ),
-                                                onPressed: () async {
-                                                  var _url =
-                                                      "market://details?id=${_packageInfo.packageName}";
-                                                  await canLaunch(_url)
-                                                      ? await launch(_url).then(
-                                                          (_) => Navigator.pop(
-                                                              context))
-                                                      : throw 'Could not launch $_url';
-                                                },
-                                                child: Text(
-                                                  "OPEN PLAY STORE",
-                                                  style: TextStyle(
-                                                      color: Theme.of(context)
-                                                          .primaryColor),
-                                                )),
-                                          ],
-                                        ));
-                              },
-                              child: SizedBox(
-                                width: MediaQuery.of(context).size.width / 3,
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 15, 0, 15),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 5.0),
-                                        child: Icon(
+                                                                    0.2)),
+                                                    backgroundColor:
+                                                        MaterialStateProperty
+                                                            .all<Color>(Theme
+                                                                    .of(context)
+                                                                .accentColor),
+                                                  ),
+                                                  onPressed: () async {
+                                                    var _url =
+                                                        "market://details?id=${_packageInfo.packageName}";
+                                                    await canLaunch(_url)
+                                                        ? await launch(_url)
+                                                            .then((_) =>
+                                                                Navigator.pop(
+                                                                    context))
+                                                        : throw 'Could not launch $_url';
+                                                  },
+                                                  child: Text(
+                                                    "OPEN PLAY STORE",
+                                                    style: TextStyle(
+                                                        color: Theme.of(context)
+                                                            .primaryColor),
+                                                  )),
+                                            ],
+                                          ));
+                                },
+                                child: SizedBox(
+                                  height: double.infinity,
+                                  width: MediaQuery.of(context).size.width / 3,
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                    child: Row(
+                                      children: [
+                                        Icon(
                                           Icons.star,
                                           color: Theme.of(context).canvasColor,
                                         ),
-                                      ),
-                                      Text(
-                                        "Rate and Review",
-                                        style: TextStyle(
-                                          color: Theme.of(context).canvasColor,
-                                          // fontSize: 15,
+                                        SizedBox(
+                                          width: 5,
                                         ),
-                                      ),
-                                    ],
+                                        Expanded(
+                                          child: Center(
+                                            child: Text(
+                                              "Rate and Review",
+                                              style: TextStyle(
+                                                color: Theme.of(context)
+                                                    .canvasColor,
+                                                // fontSize: 15,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            ElevatedButton(
-                              style: ButtonStyle(
-                                elevation: MaterialStateProperty.all(0),
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Theme.of(context).accentColor),
-                                shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
+                              ElevatedButton(
+                                style: ButtonStyle(
+                                  elevation: MaterialStateProperty.all(0),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Theme.of(context).accentColor),
+                                  shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              onPressed: () async {
-                                Share.share(
-                                    "https://play.google.com/store/apps/details?id=${_packageInfo.packageName}");
-                              },
-                              child: SizedBox(
-                                width: MediaQuery.of(context).size.width / 3,
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 15, 0, 15),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 5.0),
-                                        child: Icon(
+                                onPressed: () async {
+                                  Share.share(
+                                      "https://play.google.com/store/apps/details?id=${_packageInfo.packageName}");
+                                },
+                                child: SizedBox(
+                                  height: double.infinity,
+                                  width: MediaQuery.of(context).size.width / 3,
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                    child: Row(
+                                      children: [
+                                        Icon(
                                           Icons.share,
                                           color: Theme.of(context).canvasColor,
                                         ),
-                                      ),
-                                      Text(
-                                        "Share app",
-                                        style: TextStyle(
-                                          color: Theme.of(context).canvasColor,
-                                          // fontSize: 15,
+                                        SizedBox(
+                                          width: 5,
                                         ),
-                                      ),
-                                    ],
+                                        Expanded(
+                                          child: Center(
+                                            child: Text(
+                                              "Share app",
+                                              style: TextStyle(
+                                                color: Theme.of(context)
+                                                    .canvasColor,
+                                                // fontSize: 15,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -375,7 +388,8 @@ class _AboutPageState extends State<AboutPage> {
                             children: [
                               Text(
                                 "v${_packageInfo.version}",
-                                style: TextStyle(color: MyApp.labelColor),
+                                style: TextStyle(
+                                    color: MyApp.labelColor, fontSize: 12),
                               ),
                               SizedBox(
                                 height: 3,
@@ -383,7 +397,8 @@ class _AboutPageState extends State<AboutPage> {
                               FittedBox(
                                 child: Text(
                                   "Created by a self-taught programmer",
-                                  style: TextStyle(color: MyApp.labelColor),
+                                  style: TextStyle(
+                                      color: MyApp.labelColor, fontSize: 12),
                                 ),
                               ),
                             ],
