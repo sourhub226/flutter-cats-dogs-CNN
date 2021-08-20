@@ -1,0 +1,55 @@
+name: Build and Release APKs
+
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Create tag
+              id: tag
+              uses: jacopo1395/action-autotag@master
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Display tag name
+              run: echo ${{ steps.tag.outputs.tagname }}
+            - name: Display tag sha
+              run: echo ${{ steps.tag.outputs.tagsha }}
+            - name: Display tag uri
+              run: echo ${{ steps.tag.outputs.taguri }}
+            - name: Display version from pubspec.yaml
+              run: echo ${{ steps.tag.outputs.version }}
+
+            - name: Setup Java JDK
+              if: ${{ steps.tag.outputs.tagname }}
+              uses: actions/setup-java@v1
+              with:
+                  java-version: "8.x"
+
+            - name: Setup Flutter action
+              if: ${{ steps.tag.outputs.tagname }}
+              uses: subosito/flutter-action@v1
+              with:
+                  flutter-version: "2.2.x"
+
+            - name: Flutter pub get
+              if: ${{ steps.tag.outputs.tagname }}
+              run: flutter pub get
+
+            - name: Flutter build split apk releases
+              if: ${{ steps.tag.outputs.tagname }}
+              run: flutter build apk --release --split-per-abi
+
+            - name: Move apks to github releases
+              if: ${{ steps.tag.outputs.tagname }}
+              uses: ncipollo/release-action@v1
+              with:
+                  artifacts: "build/app/outputs/apk/release/*.apk"
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  commit: main
+                  tag: ${{ steps.tag.outputs.version }}
+                  body: ${{ github.event.head_commit.message }}
+              continue-on-error: true
