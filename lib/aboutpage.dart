@@ -78,10 +78,10 @@ class _AboutPageState extends State<AboutPage> {
                                 children: [
                                   TextSpan(
                                       text:
-                                          "With the use of a Machine Learning model, this app can intelligently classify the image you input into cats and dogs. "),
+                                          "With the use of a Convolutional Neural Network (CNN), this app can intelligently classify the image you input into cats and dogs. "),
                                   TextSpan(
                                     text:
-                                        "The machine learning model is built using Google's ",
+                                        "The deep learning model is built using Google's ",
                                   ),
                                   TextSpan(
                                     recognizer: TapGestureRecognizer()
@@ -151,7 +151,7 @@ class _AboutPageState extends State<AboutPage> {
                                 children: [
                                   TextSpan(
                                     text:
-                                        "This app does not include any advertising and is completely free to use.The project is hosted on ",
+                                        "This app does not include any advertising and is completely free to use. The project is hosted on ",
                                   ),
                                   TextSpan(
                                     recognizer: TapGestureRecognizer()
