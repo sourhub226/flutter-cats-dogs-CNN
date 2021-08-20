@@ -16,7 +16,7 @@ This app was created with the goal of learning the fundamentals of Android devel
 
 ## Screenshots:
 
-<p  align="middle">
-<img src="screenshots/app-ss1.png" alt="app-screenshot-1" width='250px'>
-<img src="screenshots/app-ss2.png" alt="app-screenshot-2" width='250px'>
+<p>
+<img src="screenshots/app-ss1.png" alt="app-screenshot-1" width='270px'>
+<img src="screenshots/app-ss2.png" alt="app-screenshot-2" width='270px'>
 </p>
