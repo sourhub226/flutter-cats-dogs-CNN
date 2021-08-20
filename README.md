@@ -6,6 +6,12 @@
 ![ViewCount](https://views.whatilearened.today/views/github/sourhub226/flutter-cats-dogs-CNN.svg)
 ![GitHub all releases](https://img.shields.io/github/downloads/sourhub226/flutter-cats-dogs-CNN/total)
 
+[![Build and Release APKs](https://github.com/sourhub226/flutter-cats-dogs-CNN/actions/workflows/main.yml/badge.svg)](https://github.com/sourhub226/flutter-cats-dogs-CNN/actions/workflows/main.yml)
+
+
+<img src="assets/images/splash.png" alt="app-icon" width='130px'>
+
+
 # Cats and Dogs Classifier
 
 With the use of a Convolutional Neural Network (CNN), this app can intelligently classify the images you input into cats and dogs. The deep learning model is built using Google's [Teachable Machine](https://teachablemachine.withgoogle.com/).
