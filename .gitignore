@@ -51,3 +51,5 @@ test_images/
 edits/
 app desc.txt
 publish/
+*.jks
+key*.properties
