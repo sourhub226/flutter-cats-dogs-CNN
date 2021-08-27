@@ -20,9 +20,14 @@ The dataset used to build the model comes from [Kaggle](https://www.kaggle.com/t
 
 This app was created with the goal of learning the fundamentals of Android development from the ground up. It not include any advertisements and is completely free to try.
 
+<a href='https://play.google.com/store/apps/details?id=com.ml.catsanddogs&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width=225/></a>
+
 ## Screenshots:
 
 <p>
 <img src="screenshots/app-ss1.png" alt="app-screenshot-1" width='270px'>
 <img src="screenshots/app-ss2.png" alt="app-screenshot-2" width='270px'>
 </p>
+
+
+>Google Play and the Google Play logo are trademarks of Google LLC.
