@@ -9,17 +9,16 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
+            
             - name: Create tag
               id: tag
               uses: jacopo1395/action-autotag@master
               with:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  
             - name: Display tag name
               run: echo ${{ steps.tag.outputs.tagname }}
-            - name: Display tag sha
-              run: echo ${{ steps.tag.outputs.tagsha }}
-            - name: Display tag uri
-              run: echo ${{ steps.tag.outputs.taguri }}
+  
             - name: Display version from pubspec.yaml
               run: echo ${{ steps.tag.outputs.version }}
 
