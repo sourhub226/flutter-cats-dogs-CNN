@@ -1,4 +1,3 @@
-import 'package:cats_dogs_classifier/classifier.dart';
 import 'package:cats_dogs_classifier/home.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorSchemeSeed: Colors.teal,
         useMaterial3: true,
       ),
-      home: Home(),
+      home: const Home(),
     );
   }
 }

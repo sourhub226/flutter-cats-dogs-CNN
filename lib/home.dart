@@ -112,6 +112,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        toolbarHeight: 90,
         title: Column(
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -158,7 +159,7 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(12.0),
                         child: Text(
                           "Label: $label",
                           style: Theme.of(context).textTheme.titleLarge,
@@ -169,7 +170,7 @@ class _HomeState extends State<Home> {
                         padding: const EdgeInsets.only(bottom: 8.0),
                         child: Text(
                           "Confidence: ${confidence.toStringAsFixed(2)}%",
-                          style: Theme.of(context).textTheme.titleMedium,
+                          style: Theme.of(context).textTheme.titleSmall,
                           textAlign: TextAlign.center,
                         ),
                       ),
