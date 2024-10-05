@@ -145,6 +145,21 @@ class _AboutState extends State<About> {
             Expanded(child: Container()),
 
             //button for rate and review with icon
+
+            ElevatedButton.icon(
+              onPressed: () {
+                Share.share(
+                    "Check out this cool app that can classify images of cats and dogs! \n https://play.google.com/store/apps/details?id=com.ml.cats_dogs_classifier");
+              },
+              icon: const Icon(Icons.share),
+              label: const Padding(
+                padding: EdgeInsets.all(18.0),
+                child: Text("Share the app"),
+              ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
             ElevatedButton.icon(
               onPressed: () {
                 //add rate and review link
@@ -155,20 +170,6 @@ class _AboutState extends State<About> {
               label: const Padding(
                 padding: EdgeInsets.all(18.0),
                 child: Text("Rate and Review"),
-              ),
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            ElevatedButton.icon(
-              onPressed: () {
-                Share.share(
-                    "Check out this cool app that can classify images of cats and dogs! \n https://play.google.com/store/apps/details?id=com.ml.cats_dogs_classifier");
-              },
-              icon: const Icon(Icons.share),
-              label: const Padding(
-                padding: EdgeInsets.all(18.0),
-                child: Text("Share app"),
               ),
             ),
             const SizedBox(
