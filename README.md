@@ -1,16 +1,31 @@
-# cats_dogs_classifier
+<a href='https://play.google.com/store/apps/details?id=com.ml.cats_dogs_classifier&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img align="right" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width=225/></a>
 
-A new Flutter project.
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter)](https://flutter.dev/)
+[![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart)](https://dart.dev/)
+[![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://www.android.com/)
 
-## Getting Started
+![ContributionsWelcome](https://img.shields.io/badge/contributions-welcome-green.svg)
+![ViewCount](https://views.whatilearened.today/views/github/sourhub226/flutter-cats-dogs-CNN.svg)
+![GitHub all releases](https://img.shields.io/github/downloads/sourhub226/flutter-cats-dogs-CNN/total)
 
-This project is a starting point for a Flutter application.
+<!-- [![Build and Release APKs](https://github.com/sourhub226/flutter-cats-dogs-CNN/actions/workflows/main.yml/badge.svg)](https://github.com/sourhub226/flutter-cats-dogs-CNN/actions/workflows/main.yml) -->
 
-A few resources to get you started if this is your first Flutter project:
+<img src="icons/ic_launcher.png" alt="app-icon" width='130px'>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Cats and Dogs Classifier
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+With the use of a Convolutional Neural Network (CNN), this app can intelligently classify the images you input into cats and dogs. The deep learning model is built using Google's [Teachable Machine](https://teachablemachine.withgoogle.com/).
+
+The dataset used to build the model comes from [Kaggle](https://www.kaggle.com/tongpython/cat-and-dog), and it contains over 10,000 pictures of cats and dogs that were supplied as training input.
+
+This app was created with the goal of learning the fundamentals of Android development from the ground up. It not include any advertisements and is completely free to try.
+
+
+## Screenshots:
+
+<p>
+<img src="screenshots/ss1.png" alt="app-screenshot-1" width='270px'>
+<img src="screenshots/ss2.png" alt="app-screenshot-2" width='270px'>
+</p>
+
+> Google Play and the Google Play logo are trademarks of Google LLC.
