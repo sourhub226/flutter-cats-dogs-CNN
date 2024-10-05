@@ -10,7 +10,7 @@
 
 <!-- [![Build and Release APKs](https://github.com/sourhub226/flutter-cats-dogs-CNN/actions/workflows/main.yml/badge.svg)](https://github.com/sourhub226/flutter-cats-dogs-CNN/actions/workflows/main.yml) -->
 
-<img src="icons/ic_launcher.png" alt="app-icon" width='130px'>
+<img src="icons/logo.svg" alt="app-icon" width='150px'>
 
 # Cats and Dogs Classifier
 
@@ -19,7 +19,6 @@ With the use of a Convolutional Neural Network (CNN), this app can intelligently
 The dataset used to build the model comes from [Kaggle](https://www.kaggle.com/tongpython/cat-and-dog), and it contains over 10,000 pictures of cats and dogs that were supplied as training input.
 
 This app was created with the goal of learning the fundamentals of Android development from the ground up. It not include any advertisements and is completely free to try.
-
 
 ## Screenshots:
 
